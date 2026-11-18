@@ -16,3 +16,15 @@ CREATE TABLE pitches(
     FOREIGN KEY(owner_id) REFERENCES users(id)
 );
 
+CREATE TABLE bookings(
+    id INTEGER PRIMARY KEY,
+    customer_id INTEGER NOT NULL,
+    pitch_id INTEGER NOT NULL,
+    start_time TEXT NOT NULL,
+    end_time TEXT NOT NULL,
+    status TEXT NOT NULL,
+    FOREIGN KEY(customer_id) REFERENCES users(id),
+    FOREIGN KEY(pitch_id) REFERENCES pitches(id)
+);
+
+
