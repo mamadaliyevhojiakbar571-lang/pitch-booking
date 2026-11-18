@@ -7,3 +7,12 @@ CREATE TABLE users(
     phone TEXT NOT NULL
 );
 
+CREATE TABLE pitches(
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    location TEXT NOT NULL,
+    price INTEGER NOT NULL,
+    owner_id INTEGER NOT NULL,
+    FOREIGN KEY(owner_id) REFERENCES users(id)
+);
+
