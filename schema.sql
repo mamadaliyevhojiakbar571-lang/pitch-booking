@@ -1,13 +1,13 @@
-CREATE TABLE users(
+CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
-    email TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
     role TEXT NOT NULL,
-    phone TEXT NOT NULL
+    phone TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE pitches(
+CREATE TABLE IF NOT EXISTS pitches(
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     location TEXT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE pitches(
     FOREIGN KEY(owner_id) REFERENCES users(id)
 );
 
-CREATE TABLE bookings(
+CREATE TABLE IF NOT EXISTS bookings(
     id INTEGER PRIMARY KEY,
     customer_id INTEGER NOT NULL,
     pitch_id INTEGER NOT NULL,
